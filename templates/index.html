@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Get instant answers to your questions with our AI-powered customer support chatbot - Available 24/7 for order tracking, refunds, and general inquiries">
+    <title>💬 Customer Support Assistant - 24/7 AI Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="bot-avatar">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="20" fill="url(#gradient1)" />
+                        <path
+                            d="M20 10C14.48 10 10 14.48 10 20C10 25.52 14.48 30 20 30C25.52 30 30 25.52 30 20C30 14.48 25.52 10 20 10ZM20 16C21.66 16 23 17.34 23 19C23 20.66 21.66 22 20 22C18.34 22 17 20.66 17 19C17 17.34 18.34 16 20 16ZM20 28C17.33 28 14.94 26.66 13.5 24.62C13.53 22.5 17.67 21.33 20 21.33C22.32 21.33 26.47 22.5 26.5 24.62C25.06 26.66 22.67 28 20 28Z"
+                            fill="white" />
+                        <defs>
+                            <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#0EA5E9" />
+                                <stop offset="100%" stop-color="#7C3AED" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="header-info">
+                    <h1>💬 Customer Support</h1>
+                    <p class="status">
+                        <span class="status-dot"></span>
+                        Online 24/7
+                    </p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="clearChat()" title="Clear Chat">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M8 2V5H15V2H8ZM2 6V18H18V6H2ZM8 8H10V16H8V8ZM12 8H14V16H12V8Z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Welcome Message -->
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="20" fill="url(#gradient2)" />
+                        <path
+                            d="M20 10C14.48 10 10 14.48 10 20C10 25.52 14.48 30 20 30C25.52 30 30 25.52 30 20C30 14.48 25.52 10 20 10Z"
+                            fill="white" />
+                        <defs>
+                            <linearGradient id="gradient2" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#0EA5E9" />
+                                <stop offset="100%" stop-color="#7C3AED" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        <p>Hello! 👋 Welcome to our Customer Support. I'm here to help you with:</p>
+                        <ul>
+                            <li>Order status & tracking</li>
+                            <li>Order cancellation</li>
+                            <li>Refund policy</li>
+                            <li>Product information</li>
+                            <li>General inquiries</li>
+                        </ul>
+                        <p>How can I assist you today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggested Questions -->
+        <div class="suggestions" id="suggestions">
+            <button class="suggestion-btn" onclick="sendSuggestion('What is my order status?')">
+                📦 Check order status
+            </button>
+            <button class="suggestion-btn" onclick="sendSuggestion('How can I cancel my order?')">
+                ❌ Cancel my order
+            </button>
+            <button class="suggestion-btn" onclick="sendSuggestion('What is your refund policy?')">
+                💰 Refund policy
+            </button>
+            <button class="suggestion-btn" onclick="sendSuggestion('How can I contact support?')">
+                📞 Contact support
+            </button>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input">
+            <form id="chatForm">
+                <div class="input-wrapper">
+                    <input type="text" id="userInput" placeholder="Type your message here..." autocomplete="off"
+                        required>
+                    <button type="submit" class="send-btn" id="sendBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 8L11 13" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Powered by AI • <a href="/admin" target="_blank">Admin Panel</a></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+
+</html>

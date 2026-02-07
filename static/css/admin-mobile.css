@@ -1,0 +1,238 @@
+/* ============================================
+   Mobile Responsive Styles for Admin Panel
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .admin-container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    body::before {
+        display: none;
+    }
+
+    .admin-container {
+        padding: 15px;
+    }
+
+    .admin-header {
+        padding: 30px 20px;
+        margin-bottom: 25px;
+        border-radius: 16px;
+    }
+
+    .admin-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .admin-header p {
+        font-size: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-value {
+        font-size: 2.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .conversations-table {
+        border-radius: 16px;
+    }
+
+    .table-header {
+        padding: 20px;
+    }
+
+    .table-header h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Make table scrollable */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    thead,
+    tbody,
+    tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    th,
+    td {
+        padding: 14px 12px;
+        font-size: 0.85rem;
+    }
+
+    th {
+        font-size: 0.75rem;
+    }
+
+    .pagination {
+        padding: 20px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .pagination button {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-container {
+        padding: 10px;
+    }
+
+    .admin-header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+        border-radius: 14px;
+    }
+
+    .admin-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .admin-header p {
+        font-size: 0.9rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .conversations-table {
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    .table-header {
+        padding: 16px;
+    }
+
+    .table-header h2 {
+        font-size: 1.1rem;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+
+    th {
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+    }
+
+    .intent-badge {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+
+    .pagination {
+        padding: 15px;
+        gap: 6px;
+    }
+
+    .pagination button {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+        min-width: 40px;
+    }
+
+    #intentDistribution>div>div {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .loading {
+        padding: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .admin-header {
+        padding: 15px 20px;
+    }
+
+    .admin-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .stats-grid {
+        margin-bottom: 15px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .pagination button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .stat-card:hover {
+        transform: none;
+    }
+
+    .stat-card:active {
+        transform: scale(0.98);
+    }
+
+    * {
+        touch-action: manipulation;
+    }
+}
